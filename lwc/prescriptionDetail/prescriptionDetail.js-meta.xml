@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <!-- Record page for Prescription__c -->
+        <target>lightning__RecordPage</target>
+        <!-- Also available on App/Home pages if needed -->
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <!-- recordId is supplied automatically by the platform -->
+            <property name="recordId" type="String" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

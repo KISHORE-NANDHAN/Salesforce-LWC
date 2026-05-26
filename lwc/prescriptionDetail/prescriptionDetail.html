@@ -1,0 +1,130 @@
+<template>
+    <div class="invoice-shell">
+
+        <!-- Loading State -->
+        <template if:true={isLoading}>
+            <div class="loading-overlay">
+                <div class="pulse-ring"></div>
+                <p class="loading-text">Fetching Prescription…</p>
+            </div>
+        </template>
+
+        <!-- Error State -->
+        <template if:true={hasError}>
+            <div class="error-card">
+                <div class="error-icon">⚠</div>
+                <p class="error-msg">{errorMessage}</p>
+            </div>
+        </template>
+
+        <!-- Invoice Content -->
+        <template if:true={hasData}>
+            <div class="invoice-page" id="invoice-content">
+
+                <!-- ── Header Bar ── -->
+                <div class="inv-header">
+                    <div class="clinic-brand">
+                        <span class="brand-cross">✚</span>
+                        <div>
+                            <div class="brand-name">MediCare Clinic</div>
+                            <div class="brand-sub">Prescription Invoice</div>
+                        </div>
+                    </div>
+                    <div class="inv-meta">
+                        <div class="inv-badge">
+                            <span class="badge-label">Prescription No.</span>
+                            <span class="badge-value">{prescription.prescriptionName}</span>
+                        </div>
+                        <div class="inv-date">{formattedDate}</div>
+                    </div>
+                </div>
+
+                <!-- ── Info Row ── -->
+                <div class="info-row">
+                    <div class="info-card">
+                        <span class="info-label">Patient</span>
+                        <span class="info-value">{prescription.patientName}</span>
+                    </div>
+                    <div class="info-divider"></div>
+                    <div class="info-card">
+                        <span class="info-label">Prescribing Doctor</span>
+                        <span class="info-value">{prescription.doctorName}</span>
+                    </div>
+                    <div class="info-divider"></div>
+                    <div class="info-card">
+                        <span class="info-label">Prescription Date</span>
+                        <span class="info-value">{formattedDate}</span>
+                    </div>
+                </div>
+
+                <!-- ── Items Table ── -->
+                <div class="table-wrapper">
+                    <table class="rx-table">
+                        <thead>
+                            <tr>
+                                <th class="col-medicine">Medicine &amp; Directions</th>
+                                <th class="col-qty">Qty</th>
+                                <th class="col-price">Unit Price</th>
+                                <th class="col-sum">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={prescription.items} for:item="item">
+                                <tr key={item.id} class="rx-row">
+                                    <td class="cell-medicine">
+                                        <div class="med-name">{item.medicineName}</div>
+                                        <div class="med-desc">{item.description}</div>
+                                    </td>
+                                    <td class="cell-num">{item.quantity}</td>
+                                    <td class="cell-num">
+                                        <lightning-formatted-number
+                                            value={item.price}
+                                            format-style="currency"
+                                            currency-code="INR">
+                                        </lightning-formatted-number>
+                                    </td>
+                                    <td class="cell-num cell-sum">
+                                        <lightning-formatted-number
+                                            value={item.rowSum}
+                                            format-style="currency"
+                                            currency-code="INR">
+                                        </lightning-formatted-number>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ── Total Strip ── -->
+                <div class="total-strip">
+                    <span class="total-label">Grand Total</span>
+                    <span class="total-amount">
+                        <lightning-formatted-number
+                            value={prescription.totalPrice}
+                            format-style="currency"
+                            currency-code="INR">
+                        </lightning-formatted-number>
+                    </span>
+                </div>
+
+                <!-- ── Footer ── -->
+                <div class="inv-footer">
+                    <div class="footer-note">
+                        This prescription invoice is system-generated and valid without a signature.
+                    </div>
+                    <div class="footer-actions no-print">
+                        <lightning-button
+                            label="Print Invoice"
+                            variant="brand"
+                            icon-name="utility:print"
+                            onclick={handlePrint}>
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </div>
+        </template>
+
+    </div>
+</template>
