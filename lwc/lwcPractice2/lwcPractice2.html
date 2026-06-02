@@ -1,0 +1,10 @@
+<template>
+    <form>
+        <lightning-input label="Name" name="name" onchange={handleChange} ></lightning-input>
+        <lightning-input label="Age" name="age" onchange={handleChange} ></lightning-input>
+        <lightning-input label="Marks" name="marks" onchange={handleChange} ></lightning-input>
+        <lightning-button onclick={handleSubmit} label="Submit"></lightning-button>
+    </form>
+    <lightning-button onclick={fromChild} label="click me to run child alert" ></lightning-button>
+    <c-lwc-practice-child2 user={user} submitted={submitted} display-alert={displayAlert}></c-lwc-practice-child2>
+</template>

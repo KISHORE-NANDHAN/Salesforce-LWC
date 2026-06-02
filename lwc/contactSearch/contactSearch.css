@@ -1,0 +1,11 @@
+.div-class{
+    margin : 21px;
+    background-color : green; 
+    color: white; 
+    padding : 21px;
+}
+.div-class:hover{
+    border-radius: 30px;
+    background-color: darkgreen;
+    box-shadow: 2px;
+}

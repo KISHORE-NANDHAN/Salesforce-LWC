@@ -1,0 +1,16 @@
+<template>
+    <lightning-input label="Student Name" value={student.name} name="sName" onchange={handleStudentInfo}></lightning-input>
+    <lightning-input label="Student Phone" value={student.phoneNum} name="sPhone" onchange={handleStudentInfo}></lightning-input>
+    <lightning-input label="Student Email" value={student.email} name="sEmail" onchange={handleStudentInfo}></lightning-input>
+    <lightning-input label="Student Address" value={student.Address} name="sAddress" onchange={handleStudentInfo}></lightning-input>
+
+    <br/>
+    <br/>
+
+    <lightning-card title="studentInfo">
+        <div>Name : {student.name}</div>
+        <div>Phone : {student.phoneNum}</div>
+        <div>Email : {student.email}</div>
+        <div>Address : {student.address}</div>
+    </lightning-card>
+</template>

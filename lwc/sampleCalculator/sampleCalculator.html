@@ -1,0 +1,11 @@
+<template>
+    <lightning-input label="Enter first number" value={firstNum} onchange={handleFirstValue}></lightning-input>
+    <lightning-input label="Enter second number" value={secondNum} onchange={handleSecondValue}></lightning-input>
+
+    <lightning-button label="Addition" name="sum" onclick={calculate}></lightning-button>
+    <lightning-button label="Subtract" name="sub" onclick={calculate}></lightning-button>
+    <lightning-button label="multiply" name="mul" onclick={calculate}></lightning-button>
+    <lightning-button label="division" name="div" onclick={calculate}></lightning-button>
+
+    <h2> Result : {result} </h2>
+</template>

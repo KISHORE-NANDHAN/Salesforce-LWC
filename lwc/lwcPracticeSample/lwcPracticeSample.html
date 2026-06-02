@@ -1,0 +1,36 @@
+<template>
+    <!-- <h1>Hello World</h1>
+    <p>{name}</p>
+    <p>{value}</p>
+    <p>{bool}</p>
+    <p>{arr}</p>
+    <p>{obj}</p> -->
+    <!-- <lightning-card>
+        <p>This is the salesforce experiment, this is input tag <lightning-input class="inputfield" label="Enter some text" type="text" value={defaultVal} onchange={handleChange}></lightning-input></p>
+        <lightning-button label="click to change" onclick={handleClick}></lightning-button>
+        <p>This is the text typed in the input {changeVal}</p>
+    </lightning-card> -->
+
+    <!-- <lightning-card>
+       <lightning-input class="inputfield" label="enter city name" type="text" value={address.city} onchange={handleChange}></lightning-input>
+        <p>text typed : the entered city is  {address.city}</p>
+    </lightning-card>  -->
+
+    <!-- <div>{getSum}</div> -->
+
+    <lightning-button label={label} onclick={handleClick}></lightning-button>
+    <template lwc:if={isVisible}>
+        <lightning-card label="show data">
+            <div> This is the data shown when click on the button</div>
+        </lightning-card>
+    </template>
+
+    <template for:each={emojiList} for:item="currentItem">
+        <button class="" key={currentItem}>
+            {currentItem}
+        </button>
+    </template>
+
+    <br/><br/><br/><br/><br/><br/>
+    <c-quiz-application></c-quiz-application>
+</template>

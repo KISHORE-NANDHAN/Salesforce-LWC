@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="Account Creation">
+
+        <!-- Account Fields -->
+        <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input label="Account Name" value={accName} onchange={handleAccChange}></lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input label="Email" value={accEmail} onchange={handleAccChange}></lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input label="Industry" value={accIndustry} onchange={handleAccChange}></lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input label="Website" value={accWebsite} onchange={handleAccChange}></lightning-input>
+            </div>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="slds-p-top_small">
+            <lightning-input type="checkbox" label="Add Contact" onchange={handleCheckbox}></lightning-input>
+        </div>
+
+        <!-- Contact Section -->
+        <template if:true={showContact}>
+            <div class="slds-p-top_medium">
+                <lightning-card title="Contact Information">
+
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input label="First Name" value={conFirstName} onchange={handleConChange}></lightning-input>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input label="Last Name" value={conLastName} onchange={handleConChange}></lightning-input>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input label="Email" value={conEmail} onchange={handleConChange}></lightning-input>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input label="Phone" value={conPhone} onchange={handleConChange}></lightning-input>
+                        </div>
+                    </div>
+
+                </lightning-card>
+            </div>
+        </template>
+
+        <!-- Save Button -->
+        <div class="slds-p-top_medium">
+            <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+        </div>
+
+    </lightning-card>
+</template>

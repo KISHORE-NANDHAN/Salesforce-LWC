@@ -1,0 +1,15 @@
+<template>
+    <lightning-input label="Search Contact" onchange={handleInput} value={searchKey}></lightning-input>
+    <!-- <lightning-button label="search contact" onclick={searchContactRecords}></lightning-button> -->
+
+    <!-- <lightning-datatable key-field="id" data={conList.data} columns={columnStructure} ></lightning-datatable> -->
+
+    <lightning-datatable key-field="id" data={recList.data} columns={columnStructure} ></lightning-datatable>
+
+
+
+    <!-- inline css example -->
+    <div class="div-class">
+        CSS inline styles example
+    </div>
+</template>

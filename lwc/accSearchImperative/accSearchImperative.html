@@ -1,0 +1,13 @@
+<template>
+    
+    <lightning-input label="Search Account Name" value={accName} onchange={handleAccName} ></lightning-input>
+    <lightning-button label="Search Records" variant="brand" onclick={searchRecords}></lightning-button>
+
+    <!-- <lightning-datatable key-field="id" columns={columnStructure} data={AccRecords}></lightning-datatable> -->
+    <template for:each={AccRecords} for:item="accRec">
+        <lightning-card key={accRec.Id} title={accRec.Name}>
+            <div> Rating : {accRec.Rating} </div>
+            <div> Industry : {accRec.Industry} </div>
+        </lightning-card>
+    </template>
+</template>

@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <lightning-input label="Enter Account Name" onchange={handleChange}></lightning-input>
+        <lightning-button label="Search" onclick={handleSubmit}></lightning-button>
+        <lightning-datatable data={accounts} columns={columns} key-field="id"></lightning-datatable>
+
+        <!-- <lightning-datatable data={accountData} columns={columns} key-field="id"></lightning-datatable> -->
+    </lightning-card>
+</template>

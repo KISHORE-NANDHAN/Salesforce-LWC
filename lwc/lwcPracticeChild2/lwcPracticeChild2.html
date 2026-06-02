@@ -1,0 +1,10 @@
+<template>
+    <template if:true={submitted}>
+        <h1>From Child Component</h1>
+        <h1>{user.name}</h1>
+        <h1>{user.age}</h1>
+        <h1>{user.marks}</h1>
+
+        <button onclick={displayAlert} >Click me</button>
+    </template>
+</template>
